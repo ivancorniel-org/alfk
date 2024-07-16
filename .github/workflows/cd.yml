@@ -11,12 +11,12 @@ jobs:
     environment: dev
     steps:
       - name: deploy
-      - run: |-
+        run: |-
           echo "dev"
   prod:
     runs-on: ubuntu-latest
     environment: prod
     steps:
       - name: deploy
-      - run: |-
+        run: |-
           echo "prod"
