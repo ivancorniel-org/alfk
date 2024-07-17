@@ -13,4 +13,5 @@ jobs:
 
         env:
           NUMBER: ${{ github.event.issue.number }}
-          COMMENT: ${{ github.event.issue }}
+          AUTHOR: ${{ github.event.IssueComment.author }}
+          BODY: ${{ github.event.IssueComment.bodyText }}
