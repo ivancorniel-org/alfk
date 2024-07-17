@@ -13,5 +13,4 @@ jobs:
           echo A comment on issue $BODY
         env:
           NUMBER: ${{ github.event.issue.number }}
-          COMMENT: ${{ github.event.issue.author }}
-          BODY: ${{ github.event.issue.bodyText }}
+          COMMENT: ${{ github.event.issue }}
