@@ -11,16 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     environment: dev
     steps:
-      - name: deploy
-        run: |-
-          echo "dev"
-  prod:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: trstringer/manual-approval@v1
-        with:
-          secret: ${{ github.TOKEN }}
-          approvers: ivancorniel
-      - name: deploy
-        run: |
-          echo "deplying"
+      - uses: actions/checkout@v3
+      - uses: JasonEtco/create-an-issue@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
