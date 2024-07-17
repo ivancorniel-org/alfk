@@ -9,7 +9,7 @@ jobs:
     steps:
       - run: |
           if [ ${{ github.event.comment.user.login }} == ivancorniel ] \
-            && $BODY == approved ; 
+            && "$BODY" == approved ; 
           then
           echo "Deploying to production"
           fi
