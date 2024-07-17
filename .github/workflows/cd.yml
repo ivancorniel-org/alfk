@@ -16,15 +16,13 @@ jobs:
           echo "dev"
   prod:
     runs-on: ubuntu-latest
-    environment: prod
     steps:
-      - uses: trstringer/manual-approval@v1
+      - name: Wait_for_approval Action
+        uses: arun291091/wait_for_approval_gha@v1
         with:
-          secret: ${{ github.TOKEN }}
-          approvers: ivancorniel
-          minimum-approvals: 1
-          issue-title: "Deploying v1.3.5 to prod from staging"
-          issue-body: "Please approve or deny the deployment of version v1.3.5."
-          exclude-workflow-initiator-as-approver: false
-          additional-approved-words: ''
-          additional-denied-words: ''
+          base_repository_branch: main
+          github_org: ivancorniel-org
+          repository_name: alfk
+          pr_reviewer: ivancorniel
+          time_limit: 1209600
+          github_token: ${{ secrets.GTOKEN }}
