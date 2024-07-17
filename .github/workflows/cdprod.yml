@@ -1,0 +1,17 @@
+on: issue_comment
+
+jobs:
+  issue_commented:
+    # This job only runs for issue comments
+    name: Issue comment
+    if: ${{ !github.event.issue.pull_request }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo A comment on issue $NUMBER
+          echo A comment on issue $COMMENT
+          echo A comment on issue $BODY
+        env:
+          NUMBER: ${{ github.event.issue.number }}
+          COMMENT: ${{ github.event.issue.author }}
+          BODY: ${{ github.event.issue.bodyText }}
