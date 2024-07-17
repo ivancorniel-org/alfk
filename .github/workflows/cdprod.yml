@@ -8,8 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          if ${{ github.event.comment.user.login }} == 'ivancorniel' then \
+          if [${{ github.event.comment.user.login }} == 'ivancorniel']; 
+          then
           echo A comment on issue $BODY
+          fi
 
         env:
           NUMBER: ${{ github.event.issue.number }}
