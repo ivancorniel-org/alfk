@@ -8,9 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          if [ ${{ github.event.comment.user.login }} == ivancorniel ]; 
+          if [ ${{ github.event.comment.user.login }} == ivancorniel ] \
+            && $BODY == approved ; 
           then
-          echo A comment on issue $BODY
+          echo "Deploying to production"
           fi
 
         env:
