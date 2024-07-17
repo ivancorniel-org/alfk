@@ -1,4 +1,4 @@
 ---
-title: Weekly Radar {{ date | date('dddd, MMMM Do') }}
+title: Deployment approval request
 ---
-What's everyone up to this week?
+${{ github.event.issue.user.login }} requests Your approval for deploying to prod
