@@ -11,3 +11,4 @@ jobs:
       - uses: JasonEtco/create-an-issue@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USER: ${{ github.event.issue.user.login }}
