@@ -17,12 +17,10 @@ jobs:
   prod:
     runs-on: ubuntu-latest
     steps:
-      - name: Wait_for_approval Action
-        uses: arun291091/wait_for_approval_gha@v1
+      - uses: trstringer/manual-approval@v1
         with:
-          base_repository_branch: main
-          github_org: ivancorniel-org
-          repository_name: alfk
-          pr_reviewer: ivancorniel
-          time_limit: 1209600
-          github_token: ${{ secrets.GTOKEN }}
+          secret: ${{ github.TOKEN }}
+          approvers: ivancorniel
+      - name: deploy
+        run: |
+          echo "deplying"
