@@ -13,4 +13,3 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           USER: ${{ github.event.issue.user.login }}
           APP_NAME: APPacito
-
