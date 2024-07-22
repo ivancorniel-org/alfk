@@ -22,4 +22,5 @@ jobs:
       #     BODY: ${{ github.event.comment.body }}
         - name: script
           run: |
+            ls
             bash .github/bash.sh
