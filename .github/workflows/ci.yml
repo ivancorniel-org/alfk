@@ -8,8 +8,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: JasonEtco/create-an-issue@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          USER: ${{ github.event.issue.user.login }}
-          APP_NAME: APPacito
+      # - uses: JasonEtco/create-an-issue@v2
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     USER: ${{ github.event.issue.user.login }}
+      #     APP_NAME: APPacito
+      - name: script
+        run: |
+          ls
+          bash .github/bash.sh
