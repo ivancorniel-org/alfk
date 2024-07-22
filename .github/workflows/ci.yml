@@ -16,4 +16,4 @@ jobs:
       - name: script
         run: |
           ls
-          bash .github/bash.sh
+          bash .github/bash.sh ${{ github.event.comment.user.login }}
