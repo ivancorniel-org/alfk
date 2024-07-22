@@ -1,3 +1,5 @@
 #!/bin/bash
 
-echo ${{ github.event.comment.user.login }}
+USER=$1
+
+echo $USER
