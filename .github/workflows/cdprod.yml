@@ -7,17 +7,19 @@ jobs:
     if: ${{ !github.event.issue.pull_request }}
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          if [ ${{ github.event.comment.user.login }} == ivancorniel ] \
-            && [ $BODY == approved ]; 
-          then
-            echo "Deploying to production"
-          else 
-            echo "deployment denied"
-          fi
+      # - run: |
+      #     if [ ${{ github.event.comment.user.login }} == ivancorniel ] \
+      #       && [ $BODY == approved ]; 
+      #     then
+      #       echo "Deploying to production"
+      #     else 
+      #       echo "deployment denied"
+      #     fi
 
-        env:
-          NUMBER: ${{ github.event.issue.number }}
-          AUTHOR: ${{ github.event.comment.user.login }}
-          BODY: ${{ github.event.comment.body }}
-          
+      #   env:
+      #     NUMBER: ${{ github.event.issue.number }}
+      #     AUTHOR: ${{ github.event.comment.user.login }}
+      #     BODY: ${{ github.event.comment.body }}
+        - name: script
+          run: |
+            bash bash.sh
