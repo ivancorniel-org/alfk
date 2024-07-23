@@ -6,6 +6,7 @@ jobs:
     name: Issue comment
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - name: verify approval
         run: |
           ls
