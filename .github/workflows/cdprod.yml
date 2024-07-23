@@ -8,6 +8,7 @@ jobs:
     steps:
       - name: verify approval
         run: |
+          ls
           bash .github/bash.sh ${{ github.event.comment.body }} ${{ github.event.comment.user.login }}
       - name: deploy
         run: |
