@@ -4,8 +4,9 @@ set -e
 
 COMENT=$1
 USER=$2
-APPROVERS='ivancorniel nishedcob Alan1108'
 APPROVAL='ok yes approved go'
+APPROVERS=$(curl -s -H "Authorization: token $GITHUB_TOKEN" \
+  "https://api.github.com/orgs/ivancorniel-org/members" | jq -r '.[].login')
 
 if ! echo $APPROVERS | tr ' ' '\n' | grep -q $USER || ! echo $APPROVAL | tr ' ' '\n' | grep -q $COMENT ; then
   echo deployment not approved
