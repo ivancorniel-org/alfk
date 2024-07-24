@@ -8,6 +8,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: verify approval
+        env: 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           bash .github/bash.sh ${{ github.event.comment.body }} ${{ github.event.comment.user.login }}
       - name: deploy
