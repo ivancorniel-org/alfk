@@ -14,7 +14,7 @@ jobs:
           bash .github/bash.sh ${{ github.event.comment.body }} ${{ github.event.comment.user.login }}
       - name: deploy
         run: |
-          if ${{ env.DEPLOYMENT }} == 'APPROVED'; then
+          if [[ ${{ env.DEPLOYMENT }} == 'APPROVED' ]]; then
             echo Deploying ...
           else
             echo Deployment not approved
