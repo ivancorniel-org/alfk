@@ -12,4 +12,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           USER: ${{ github.event.issue.user.login }}
-          APP_NAME: APPacito
+          COMMIT_ID: $(git rev-parse --short "$GITHUB_SHA")

@@ -1,5 +1,5 @@
 ---
-title: $(git rev-parse --short "$GITHUB_SHA")
+title: ${{ env.COMMIT_ID }}
 ---
 {{ payload.sender.login }} requests Your approval for deploying to prod
 
