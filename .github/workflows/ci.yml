@@ -8,8 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Get the latest commit ID
+        id: get_commit
+        run: echo "::set-output name=commit_id::$(git rev-parse HEAD)"
       - uses: JasonEtco/create-an-issue@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           USER: ${{ github.event.issue.user.login }}
-          COMMIT_ID: $(git rev-parse --short "$GITHUB_SHA")
+          COMMIT_ID: ${{ steps.get_commit.outputs.commit_id }}
